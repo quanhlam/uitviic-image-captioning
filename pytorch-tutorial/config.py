@@ -9,13 +9,13 @@ class Config(object):
     vocab_path = 'data/vocab.pkl'
     model_path = 'models/'
 
-    tokenizer = 'nltk'
+    tokenizer = 'pyvi'
 
     optimizer = "adam"
 
     threshold = 1
     learning_rate = 0.001
-    num_epochs = 10
+    num_epochs = 15
     crop_size = 224
     batch_size = 128
     embed_size = 256 # Dimension of word embedding vectors
