@@ -267,7 +267,8 @@ class COCO:
         """
         res = COCO()
         res.dataset['images'] = [img for img in self.dataset['images']]
-        res.dataset['info'] = copy.deepcopy(self.dataset['info'])
+        if 'info' in res.dataset:
+            res.dataset['info'] = copy.deepcopy(self.dataset['info'])
         if 'type' in res.dataset:
             res.dataset['type'] = copy.deepcopy(self.dataset['type'])
         if 'licenses' in res.dataset:

@@ -4,11 +4,11 @@ class Config(object):
     # Paths
     img_path = '../../Images/resized2017'
     train_path = 'data/annotations/captions_train2017.json'
-    val_path = ''
+    val_path = 'data/annotations/captions_val2017.json'
     test_path = ''
     vocab_path = 'data/vocab.pkl'
     model_path = 'models/'
-
+    machine_output_path = 'data/machine_output.json'
     tokenizer = 'pyvi'
 
     optimizer = "adam"
@@ -23,7 +23,10 @@ class Config(object):
     num_layers = 1 # NUmber of layers in lstm   
     num_workers = 2
 
-    save_step = 100
+    save_step = 1
 
     log_step = 10
+
+    encoder_path = 'models/encoder-15-4.ckpt'
+    decoder_path = 'models/decoder-15-4.ckpt'
 

@@ -8,12 +8,14 @@ argparse
 pyvi==0.0.9.7
 nltk
 
-#pytorch
-torch
-torchvision
 
 #deeplearning
 #tensorflow==2.0.0
 matplotlib
 numpy
 Pillow
+
+
+#pytorch
+torch
+torchvision

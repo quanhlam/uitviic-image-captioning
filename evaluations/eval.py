@@ -4,15 +4,19 @@ import nltk
 from ptbtokenizer import PTBTokenizer
 from pyvi import ViTokenizer
 from bleu import Bleu
-# from meteor import Meteor
+from meteor import Meteor
 from rouge import Rouge
 from cider import Cider
 # # from spice import Spice
+
+TOKEN_BY_TOKEN = False
 def tokenizer_sentence(data, tokenizer):
     if tokenizer == 'pyvi':
         for img_id, caption_data_list in data.items():
             for caption_data in caption_data_list:
                 caption_data['caption'] = ViTokenizer.tokenize(caption_data['caption'].lower())
+                if TOKEN_BY_TOKEN is True:
+                    caption_data['caption'] = caption_data['caption'].replace('_', ' ')
     elif tokenizer == 'nltk':
         for img_id, caption_data_list in data.items():
             for caption_data in caption_data_list:
@@ -37,13 +41,13 @@ class COCOEvalCap(object):
         res = {}    
 
         for imgId in imgIds:
-            gts[imgId] = self.coco.imgToAnns[imgId]
-            res[imgId] = self.cocoRes.imgToAnns[imgId]
+            if imgId in self.coco.imgToAnns and imgId in self.cocoRes.imgToAnns:
+                gts[imgId] = self.coco.imgToAnns[imgId]
+                res[imgId] = self.cocoRes.imgToAnns[imgId]
         # =================================================
         # Set up scorers
         # =================================================
         print ('tokenization...')
-        
         gts  = tokenizer_sentence(gts, self.tokenizer)
         res = tokenizer_sentence(res, self.tokenizer)
 
@@ -53,7 +57,7 @@ class COCOEvalCap(object):
         print('setting up scorers...')
         scorers = [
             (Bleu(4), ["Bleu_1", "Bleu_2", "Bleu_3", "Bleu_4"]),
-            # (Meteor(),"METEOR"),
+            (Meteor(),"METEOR"),
             (Rouge(), "ROUGE_L"),
             (Cider(), "CIDEr"),
             # (Spice(), "SPICE")

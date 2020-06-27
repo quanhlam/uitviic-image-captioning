@@ -30,6 +30,7 @@ class Bleu:
 
             # Sanity check.
             assert(type(hypo) is list)
+            print(len(hypo))
             assert(len(hypo) == 1)
             assert(type(ref) is list)
             assert(len(ref) >= 1)
