@@ -1,7 +1,7 @@
 ###December 2019 versions###
   
 #essential
-setuptools==42.0.2
+setuptools==65.5.1
 argparse
 
 #tokenizer
