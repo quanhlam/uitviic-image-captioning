@@ -13,7 +13,7 @@ torch
 torchvision
 
 #deeplearning
-tensorflow==2.9.3
+tensorflow==2.11.1
 matplotlib
 numpy
 Pillow
