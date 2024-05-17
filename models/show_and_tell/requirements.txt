@@ -7,7 +7,7 @@ opencv-python
 scikit-image
 scipy
 Pillow
-numpy==1.16.2
+numpy==1.22.0
 ipython
 jupyter
 pandas
