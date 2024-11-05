@@ -14,6 +14,6 @@ pandas
 sympy
 nose
 nltk
-tqdm==4.32.1
+tqdm==4.66.3
 scikit-learn
 scikit-image
