@@ -1,7 +1,7 @@
 pyvi
 pandas
 xlwt
-tensorflow==2.9.3
+tensorflow==2.12.1
 matplotlib
 opencv-python
 scikit-image
